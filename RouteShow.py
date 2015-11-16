@@ -76,4 +76,5 @@ def RouteShow(name):
     ax.scatter(x_lst, y_lst, z_lst, s=1,c='r')
     ax.legend()
     plt.show()
+
 #RouteShow(sys.argv[1])
