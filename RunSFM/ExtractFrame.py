@@ -14,3 +14,4 @@ for line in open(video_info_file,'r'):
     video_name = dir_name + '.mp4'
     command = "ffmpeg -i %s/%s/%s -r 5 -qscale:v 1 %s/%s/images/"%(video_dir,dir_name, video_name, video_dir,dir_name) + "image-%5d.jpg"
     call(command, shell=True)
+    #######
