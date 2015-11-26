@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 
+# This code is do 3D recostruction for video in the list
 import sys
 sys.path.append('/home/Futen/Dash_Cam')
 from subprocess import call
@@ -19,7 +20,7 @@ f_finish = open("%s/FINISH_LST.txt"%root_dir,'r')
 try:
     for one in f_finish:
         one = one.split('\t')[0]
-        finish_lst.append(one)
+        finish_lst.append(one) # To get the video which is already done
 except IOError:
     pass
 f_finish.close()
@@ -37,9 +38,9 @@ for each in video_lst:
         print name
     
         start = timeit.default_timer()
-        call("/home/Futen/OpenSfM/bin/run_all %s/%s"%(video_lst_dir, name), shell=True)
+        call("/home/Futen/OpenSfM/bin/run_all %s/%s"%(video_lst_dir, name), shell=True) # Use opensfm
         stop = timeit.default_timer()
         during = str((stop - start)/60)
-        f = open("%s/FINISH_LST.txt"%root_dir,'a')
+        f = open("%s/FINISH_LST.txt"%root_dir,'a') # record the finish video
         f.write("%s\t%s\n"%(name, during))
         f.close()

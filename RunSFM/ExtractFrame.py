@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-
+#   This code is to extract frame from each video in the list
 import sys
 sys.path.append('/home/Futen/Dash_Cam')
 from subprocess import call
