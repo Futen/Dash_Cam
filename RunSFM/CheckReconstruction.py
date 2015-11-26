@@ -1,19 +1,25 @@
 #! /usr/bin/env python
 
+import sys
+sys.path.append('/home/Futen/Dash_Cam')
 from glob import glob
 import os
+import SystemParameter
 
-f = open("FINISH_LST",'r')
-f_out = open("Reconstrction_Check_lst",'w')
+video_dir = SystemParameter.VIDEO_PATH
+root_dir = SystemParameter.ROOT_PATH
+
+f = open("%s/FINISH_LST.txt"%root_dir,'r')
+f_out = open("%s/Reconstrction_Check_lst.txt"%root_dir,'w')
 for line in f:
     line = line.split("\n")[0]
     arr = line.split("\t")
     name = arr[0]
-    if not(os.path.exists("Videos/%s/reconstruction.json"%name)):
+    if not(os.path.exists("%s/%s/reconstruction.json"%(video_dir, name))):
         print name
         outcome = ''
-        img_lst = glob("Videos/%s/images/*.jpg"%name)
-        match_lst = glob("Videos/%s/matches/*.gz"%name)
+        img_lst = glob("%s/%s/images/*.jpg"%(video_dir,name))
+        match_lst = glob("%s/%s/matches/*.gz"%(video_dir,name))
         if len(img_lst)==len(match_lst):
             outcome = "no_move"
         else:

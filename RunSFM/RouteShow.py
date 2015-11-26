@@ -77,5 +77,5 @@ def RouteShow(name):
     ax.legend()
     plt.show()
 
-if len(sys.argv) == 2:
+if __name__ == '__main__':
     RouteShow(sys.argv[1])
