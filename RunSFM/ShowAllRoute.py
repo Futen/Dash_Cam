@@ -1,8 +1,13 @@
 #! /usr/bin/env python
 
+import sys
+sys.path.append('/home/Futen/Dash_Cam')
 from RouteShow import RouteShow
 from subprocess import call
-f = open("Reconstrction_Check_lst",'r')
+import SystemParameter
+root_dir = SystemParameter.ROOT_PATH
+video_dir = SystemParameter.VIDEO_PATH
+f = open("%s/Reconstrction_Check_lst"%root_dir,'r')
 lst = []
 for line in f:
     line = line.split("\t")
@@ -11,5 +16,5 @@ for line in f:
         lst.append(line[0])
 for one in lst:
     print one
-    name = 'Videos/%s/reconstruction.json'%one
+    name = '%s/%s/reconstruction.json'%(video_dir,one)
     RouteShow(name)
