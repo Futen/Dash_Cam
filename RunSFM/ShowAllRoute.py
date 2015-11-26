@@ -7,7 +7,7 @@ from subprocess import call
 import SystemParameter
 root_dir = SystemParameter.ROOT_PATH
 video_dir = SystemParameter.VIDEO_PATH
-f = open("%s/Reconstrction_Check_lst"%root_dir,'r')
+f = open("%s/Reconstrction_Check_lst.txt"%root_dir,'r')
 lst = []
 for line in f:
     line = line.split("\t")
