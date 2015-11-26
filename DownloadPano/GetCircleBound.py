@@ -37,6 +37,7 @@ def GetBoundCircle(center): # lat, lon
     return circle
 
 if __name__ == '__main__':
+    print len(GetBoundCircle((0,0)))
     argv = []
     #print len(sys.argv)-1
     for i in range(1, len(sys.argv)):
