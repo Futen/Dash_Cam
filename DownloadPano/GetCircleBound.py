@@ -4,6 +4,7 @@ import sys
 sys.path.append('/home/Futen/Dash_Cam')
 from geopy.distance import VincentyDistance
 import numpy as np
+import PanoProcess
 import SystemParameter
 
 step_latlon = 0.0009
@@ -42,4 +43,13 @@ if __name__ == '__main__':
     #print len(sys.argv)-1
     for i in range(1, len(sys.argv)):
         argv.append(float(sys.argv[i]))
-    print VincentyDistance((argv[0], argv[1]), (argv[2], argv[3])).km
+    #print VincentyDistance((argv[0], argv[1]), (argv[2], argv[3])).km
+    circle = GetBoundCircle(argv)
+    f = open('tmp.txt',"w")
+    a = 0
+    for i in circle:
+        panoid = PanoProcess.GetPanoID(i)
+        if panoid != None:
+            print a
+            f.write(panoid + '\t ' + str(i[0]) + ' ' + str(i[1])  + '\n')
+            a+=1

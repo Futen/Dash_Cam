@@ -27,3 +27,5 @@ Google_Library/lib_SIFTmatch.pyc
 Google_Library/pano_dict.npy
 Google_Library/results_simT_GT.npy
 Google_Library/results_simT_thres.npy
+DownloadPano/PanoProcess.pyc
+DownloadPano/tmp.txt
