@@ -7,7 +7,7 @@ import numpy as np
 import SystemParameter
 
 step_latlon = 0.0009
-step_ten_meter = step_latlon*2 # step_latlon/10-->every ten meter
+step_ten_meter = step_latlon # step_latlon/10-->every ten meter
 RADIUS = SystemParameter.RADIUS #km
 
 def GetBoundCircle(center): # lat, lon
