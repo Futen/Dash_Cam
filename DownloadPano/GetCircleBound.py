@@ -11,7 +11,7 @@ step_latlon = 0.0009
 step_ten_meter = step_latlon # step_latlon/10-->every ten meter
 RADIUS = SystemParameter.RADIUS #km
 
-def GetBoundCircle(center): # lat, lon
+def GetCircleBound(center): # lat, lon
     circle = []
     last_val = 0
     shutdown = 0
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     for i in range(1, len(sys.argv)):
         argv.append(float(sys.argv[i]))
     #print VincentyDistance((argv[0], argv[1]), (argv[2], argv[3])).km
-    circle = GetBoundCircle(argv)
+    circle = GetCircleBound(argv)
     print len(circle)
     f = open('tmp.txt',"w")
     a = 0

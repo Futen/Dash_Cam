@@ -30,3 +30,4 @@ Google_Library/results_simT_thres.npy
 DownloadPano/PanoProcess.pyc
 DownloadPano/tmp.txt
 video_info/
+DownloadPano/GetCircleBound.pyc

@@ -8,6 +8,7 @@ import PanoProcess
 import subprocess
 import numpy as np
 
-f
+
 info_path = SystemParameter.VIDEO_INFO_PATH
 video_file = open('%s/video_to_process.txt'%info_path, 'r')
+
