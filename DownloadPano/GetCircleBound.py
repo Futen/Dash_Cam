@@ -31,20 +31,20 @@ def GetBoundCircle(center): # lat, lon
     #print bound_lon
     for lat in bound_lat:
         for lon in bound_lon:
-            if VincentyDistance(center, (lat,lon)).km <= 3:
+            if VincentyDistance(center, (lat,lon)).km <= RADIUS:
                 latlon = [lat,lon]
                 circle.append(latlon)
     circle = np.array(circle)
     return circle
 
 if __name__ == '__main__':
-    print len(GetBoundCircle((0,0)))
     argv = []
     #print len(sys.argv)-1
     for i in range(1, len(sys.argv)):
         argv.append(float(sys.argv[i]))
     #print VincentyDistance((argv[0], argv[1]), (argv[2], argv[3])).km
     circle = GetBoundCircle(argv)
+    print len(circle)
     f = open('tmp.txt',"w")
     a = 0
     for i in circle:
