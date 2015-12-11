@@ -31,3 +31,5 @@ DownloadPano/PanoProcess.pyc
 DownloadPano/tmp.txt
 video_info/
 DownloadPano/GetCircleBound.pyc
+DownloadPano/error_lst.txt
+video_less_than_one_minute
