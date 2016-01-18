@@ -17,7 +17,11 @@ def DownloadList(center):
     pano_lst = []
     bound = GetCircleBound.GetCircleBound(center)
     for latlon in bound:
-        pano_name = PanoProcess.GetPanoID(latlon)
+        try:
+            pano_name = PanoProcess.GetPanoID(latlon)
+        except:
+            print 'error %f, %f'%(latlon[0],latlon[1])
+            continue
         if pano_name != None:
             pano_lst.append((pano_name, latlon[0], latlon[1]))
     return pano_lst
@@ -39,20 +43,24 @@ def Download(video_info): # (vname, lat, lon))
         f.close()
 
 if __name__ == '__main__':
-    #pool = Pool(processes=1)
+    pool = Pool(processes=6)
     video_to_do = []
     for line in video_file:
         line = line.split('\n')[0].split('\t')
         path = SP.GetPath(line[0])
         if path['state']['panolist'] == 'no':
             print line
+            #time.sleep(0.1)
+            '''
             try:
                 Download(line)
+                time.sleep(0.1)
             except IndexError:
                 f = open('error_lst.txt','a')
                 print 'error %s'%line[0]
                 f.write(str(line)+'\n')
                 f.close()
-            #video_to_do.append(line)
-    #print len(video_to_do)
-    #pool.map(Download, video_to_do)
+            '''
+            video_to_do.append(line)
+    print 'Total %d videos to get ID'%len(video_to_do)
+    pool.map(Download, video_to_do)
