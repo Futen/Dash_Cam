@@ -44,9 +44,13 @@ def CutPano(input_name, output_dir):
 if __name__ == '__main__':
     #name = 'pano_nKASUC9FjDDijTyhtDLAHg.jpg' 
     
-    a = GetPanoID((24.8001571,121.0090772))
+    a = GetPanoID((25.0454202604, 121.55787478))
+    print a
+    GetPanoByID(a, 'tt')
+    '''
     GetPanoByID(a, 'tt')
     a = 'tt/pano_' + a + '.jpg'
     
     #a = 'tt/pano_MZH5QF-NIGNwNQquVjRZHg.jpg'
     CutPano(a, 'tt/tt')
+    '''
